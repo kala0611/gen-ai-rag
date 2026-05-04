@@ -14,7 +14,7 @@
 ---
 
 ## 🎯 Introduction
-The AI Vengers is an Integrated Platform Environment (IPE) designed for platform support teams. It incorporates **LLMs, agentic capabilities, and contextual recommendations** to streamline platform management and automate workflows.
+The AI is an Integrated Platform Environment (IPE) designed for platform support teams. It incorporates **LLMs, agentic capabilities, and contextual recommendations** to streamline platform management and automate workflows.
 
 ## 🎥 Demo
 🔗 [Live Demo](#) (if applicable)  
@@ -45,11 +45,54 @@ Managing large-scale platform operations requires **fast troubleshooting and aut
 - Integrating LLM-driven contextual understanding.
 - Handling API rate limits and performance optimization.
 
+## 🔐 Environment Setup
+
+### Setting Up HF_TOKEN for Hugging Face
+To enable higher rate limits and faster downloads from Hugging Face, configure your `HF_TOKEN` environment variable:
+
+1. **Obtain a Hugging Face Token**:
+   - Visit [Hugging Face Settings > Tokens](https://huggingface.co/settings/tokens)
+   - Create a new token with "Read" permissions
+   - Copy the token value
+
+2. **Set the Environment Variable** (macOS/Linux):
+   - Edit your shell configuration file:
+     ```sh
+     nano ~/.zshrc  # for zsh (default on macOS)
+     # or
+     nano ~/.bashrc  # for bash
+     ```
+   - Add this line at the end:
+     ```sh
+     export HF_TOKEN=your_actual_token_here
+     ```
+   - Save and reload:
+     ```sh
+     source ~/.zshrc
+     ```
+   - Verify the token is set:
+     ```sh
+     echo $HF_TOKEN
+     ```
+
+3. **Windows Setup**:
+   - Open Environment Variables (search "Environment Variables" in Start Menu)
+   - Click "New" under User variables
+   - Variable name: `HF_TOKEN`
+   - Variable value: `your_actual_token_here`
+   - Click OK and restart your terminal
+
+### Other Required Environment Variables
+Depending on the LLM provider you're using:
+- **HuggingFace**: Set `HUGGINGFACE_API_KEY` (optional, uses `HF_TOKEN` by default)
+- **Ollama**: Ensure Ollama is running on `localhost:11434`
+- **Google Vertex AI**: Set `GCP_PROJECT_ID` for Gemini access
+
 ## 🏃 How to Run
 1. Clone the repository  
    ```sh
-   git clone https://github.com/ewfx/gaipl-the-ai-vengers.git
-   cd gaipl-the-ai-vengers
+   git clone https://github.com/kala0611/gen-ai-rag.git
+   cd gen-ai-rag
    ```
 2. Build and run the Docker container  
    ```sh
